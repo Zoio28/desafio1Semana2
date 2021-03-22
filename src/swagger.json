@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Week Challenge 2 Documentation",
+        "description": "This is an Api Week Challenge",
+        "version": "1.0.0",
+        "contact": {
+            "email": "rapha.acosta@hotmail.com"
+        }
+    },
+    "paths":{
+        "/categories":{
+            "post": {
+                "tags": ["Category"],
+                "sumary": "Create a new category",
+                "description": "In this endpoint you can create a new category",
+                "requestBody":{
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name":{
+                                        "type": "string"
+                                    },
+                                    "description":{
+                                        "type": "string"
+                                    }
+                                },
+                                "example":{
+                                    "name": "Category Car",
+                                    "description": "This is a description above category"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500":{
+                        "description": "Category already exists"
+                    }
+                }
+            },
+            "get":{
+                "tags": ["Category"],
+                "sumary": "List all categories",
+                "description": "In this endpoint you can list all categories",
+                "responses":{
+                    "200": {
+                        "description": "Success",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "array",
+                                    "items":{
+                                        "type": "object",
+                                        "properties":{
+                                            "name":{
+                                                "type": "string"
+                                            },
+                                            "description":{
+                                                "type": "string"
+                                            } 
+                                        }
+                                    }   
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
